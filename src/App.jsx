@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import './Components/Gitf/Gitf'
+import './Components/Header/Header'
 const App = () => {
   const [query, setQuery] = useState('');
   const [gifs, setGifs] = useState([]);
 
   const handleSearch = async () => {
-    const API_KEY = 'pWyTBl9Twn7NM2jANxpEf2RO08KZwWnA';  
+    const API_KEY = 'AIzaSyACnpn15uUFa-c2baE8dhkh-73lXw83s9M';  
     const URL = `"https://api.giphy.com/v1/gifs/search"`;
 
     try {
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Giphy Search</h1>
+      <div className='header'><h1 className="title">Pagina de gifs</h1></div>
       <div className="input-container">
         <input
           type="text"
