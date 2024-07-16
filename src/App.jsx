@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const fetchTrendingGifs = async () => {
       try {
-        const API_KEY = 'C777nEP9YLeRH7vvdsU5ng1tVxKTqN4R';
+        const API_KEY = 'B9E9suNuM2lt5XO1EBJFVhVm1WarJkYL';
         const URL = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=20`;
 
         const response = await axios.get(URL);
@@ -22,12 +22,12 @@ const App = () => {
     };
 
     fetchTrendingGifs();
-  }, [])
+  }, []);
 
   const handleSearch = async () => {
     try {
-      const API_KEY = 'C777nEP9YLeRH7vvdsU5ng1tVxKTqN4R';
-      const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=10`;
+      const API_KEY = 'B9E9suNuM2lt5XO1EBJFVhVm1WarJkYL';
+      const URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=20`;
 
       const response = await axios.get(URL);
       setSearchedGifs(response.data.data);
@@ -40,7 +40,7 @@ const App = () => {
   const handleClearSearch = () => {
     setSearchedGifs([]);
     setQuery('');
-    setShowTrending(true); //tendencias al limpiar la búsqueda
+    setShowTrending(true); // tendencias al limpiar la búsqueda
   };
 
   return (
@@ -57,10 +57,9 @@ const App = () => {
           placeholder="Buscar GIFs..."
         />
         <button onClick={handleSearch}>Buscar</button>
-       
       </div>
 
-      {/* resultados  búsqueda */}
+      {/* Resultados de búsqueda */}
       {searchedGifs.length > 0 && (
         <div className="searched-gifs">
           <h2>Resultados de búsqueda para "{query}"</h2>
@@ -84,7 +83,6 @@ const App = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };
